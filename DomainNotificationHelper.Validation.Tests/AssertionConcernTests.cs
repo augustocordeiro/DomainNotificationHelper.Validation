@@ -60,5 +60,27 @@ namespace DomainNotificationHelper.Validation.Tests
             var res = AssertionConcern.AssertIsNull(DateTime.Now, "Well... it is not null!");
             Assert.IsNotNull(res);
         }
+        
+        [TestMethod]
+        public void AssertIsGreaterThanDateTimeTest()
+        {
+            DomainNotification res = AssertionConcern.AssertIsGreaterThan(DateTime.Now, DateTime.Now.AddDays(-1), "Faixa de Datas é inválida");
+            Assert.IsNotNull(res);
+        }
+
+        [TestMethod]
+        public void AssertIsGreaterThanIntTest()
+        {
+            DomainNotification res = AssertionConcern.AssertIsGreaterThan(10, 20, "Valor inválido");
+            Assert.IsNotNull(res);
+        }
+
+        [TestMethod]
+        public void AssertIsGreaterThanLongTest()
+        {
+
+            DomainNotification res = AssertionConcern.AssertIsGreaterThan(8888888888L, 9999999999L, "Valor inválido");
+            Assert.IsNotNull(res);
+        }
     }
 }
