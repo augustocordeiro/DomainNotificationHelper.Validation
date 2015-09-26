@@ -74,7 +74,7 @@ namespace DomainNotificationHelper.Validation
                 : null;
         }
 
-        public static DomainNotification AssertIsGreaterThan(int value1, int value2, string message)
+          public static DomainNotification AssertIsGreaterThan(long value1, long value2, string message)
         {
             return (!(value1 > value2))
                 ? new DomainNotification("AssertArgumentTrue", message)
@@ -88,7 +88,16 @@ namespace DomainNotificationHelper.Validation
                 : null;
         }
 
-        public static DomainNotification AssertIsGreaterOrEqualThan(int value1, int value2, string message)
+        public static DomainNotification AssertIsGreaterThan(DateTime value1, DateTime value2, string message)
+        {
+            int result = DateTime.Compare(value1, value2);
+            
+            return (!(result < 0))
+                ? new DomainNotification("AssertArgumentTrue", message)
+                : null;
+        }
+
+        public static DomainNotification AssertIsGreaterOrEqualThan(long value1, long value2, string message)
         {
             return (!(value1 >= value2))
                 ? new DomainNotification("AssertArgumentTrue", message)
